@@ -1,0 +1,203 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ui components > ui-table > renders empty 1`] = `
+<div>
+  <table
+    cellpadding="0"
+    cellspacing="0"
+    class="ui-table"
+  >
+    <!--v-if-->
+    <thead>
+      <tr>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`ui components > ui-table > when a title, headers, and items are passed > displays the title 1`] = `
+<div>
+  <table
+    cellpadding="0"
+    cellspacing="0"
+    class="ui-table"
+  >
+    <caption>
+      Distribuição de trabalho
+    </caption>
+    <thead>
+      <tr>
+        
+        <th
+          style="text-align: center;"
+        >
+          nome
+        </th>
+        <th
+          style="text-align: center;"
+        >
+          tarefa
+        </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        
+        <td
+          style="text-align: center;"
+        >
+          fulano
+        </td>
+        <td
+          style="text-align: center;"
+        >
+          louça
+        </td>
+        
+      </tr>
+      <tr>
+        
+        <td
+          style="text-align: center;"
+        >
+          fulano
+        </td>
+        <td
+          style="text-align: center;"
+        >
+          aspirar
+        </td>
+        
+      </tr>
+      <tr>
+        
+        <td
+          style="text-align: center;"
+        >
+          fulano
+        </td>
+        <td
+          style="text-align: center;"
+        >
+          lavar roupas
+        </td>
+        
+      </tr>
+      <tr>
+        
+        <td
+          style="text-align: center;"
+        >
+          hoyer
+        </td>
+        <td
+          style="text-align: center;"
+        >
+          assistir youtube
+        </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`ui components > ui-table > when a title, headers, and items are passed > when the header defines an alignment > aligns the second column to the left 1`] = `
+<div>
+  <table
+    cellpadding="0"
+    cellspacing="0"
+    class="ui-table"
+  >
+    <caption>
+      Distribuição de trabalho
+    </caption>
+    <thead>
+      <tr>
+        
+        <th
+          style="text-align: center;"
+        >
+          nome
+        </th>
+        <th
+          style="text-align: left;"
+        >
+          tarefa
+        </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        
+        <td
+          style="text-align: center;"
+        >
+          fulano
+        </td>
+        <td
+          style="text-align: left;"
+        >
+          louça
+        </td>
+        
+      </tr>
+      <tr>
+        
+        <td
+          style="text-align: center;"
+        >
+          fulano
+        </td>
+        <td
+          style="text-align: left;"
+        >
+          aspirar
+        </td>
+        
+      </tr>
+      <tr>
+        
+        <td
+          style="text-align: center;"
+        >
+          fulano
+        </td>
+        <td
+          style="text-align: left;"
+        >
+          lavar roupas
+        </td>
+        
+      </tr>
+      <tr>
+        
+        <td
+          style="text-align: center;"
+        >
+          hoyer
+        </td>
+        <td
+          style="text-align: left;"
+        >
+          assistir youtube
+        </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+`;

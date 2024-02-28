@@ -1,0 +1,154 @@
+name: Test Workflow
+
+on: [pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  setup:
+    name: Install dependencies
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+      ANY_PERCENT_NPM_TOKEN: ${{ secrets.ANY_PERCENT_NPM_TOKEN }}
+      VHOYER_FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.VHOYER_FONTAWESOME_NPM_AUTH_TOKEN }}
+    steps:
+    - uses: actions/checkout@main
+
+    - name: Load dependencies versions
+      id: versions
+      run: |
+        echo "node=$(sed -n 's/NODE_VERSION=//p' .env)" >> $GITHUB_OUTPUT
+        echo "pnpm=$(sed -n 's/PNPM_VERSION=//p' .env)" >> $GITHUB_OUTPUT
+
+    - uses: pnpm/action-setup@v3
+      with:
+        version: ${{ steps.versions.outputs.pnpm }}
+
+    - uses: actions/setup-node@main
+      with:
+        node-version: ${{ steps.versions.outputs.node }}
+        cache: 'pnpm' # save global pnpm install cache
+
+    - name: Generate Dependencies Cache
+      id: dependencies
+      uses: actions/cache@main
+      with:
+        path: |
+          node_modules
+          .nuxt
+        key: ${{ hashFiles('pnpm-lock.yaml') }}
+
+    - name: Install dependencies
+      if: steps.dependencies.outputs.cache-hit != 'true'
+      run: pnpm install
+
+  tests:
+    needs: [setup]
+    name: Tests are passing
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: Load dependencies versions
+      id: versions
+      run: |
+        echo "node=$(sed -n 's/NODE_VERSION=//p' .env)" >> $GITHUB_OUTPUT
+        echo "pnpm=$(sed -n 's/PNPM_VERSION=//p' .env)" >> $GITHUB_OUTPUT
+    - uses: pnpm/action-setup@v3
+      with:
+        version: ${{ steps.versions.outputs.pnpm }}
+    - uses: actions/setup-node@main
+      with:
+        node-version: ${{ steps.versions.outputs.node }}
+    - name: Load Dependencies Cache
+      uses: actions/cache@main
+      with:
+        path: |
+          node_modules
+          .nuxt
+        key: ${{ hashFiles('pnpm-lock.yaml') }}
+    - name: Generate Test Coverage Report Cache
+      uses: actions/cache@main
+      with:
+        path: coverage
+        key: coverage-${{ github.sha }}
+    - name: Run tests
+      run: pnpm test:coverage
+
+  lint:
+    needs: [setup]
+    name: Lint is passing
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: Load dependencies versions
+      id: versions
+      run: |
+        echo "node=$(sed -n 's/NODE_VERSION=//p' .env)" >> $GITHUB_OUTPUT
+        echo "pnpm=$(sed -n 's/PNPM_VERSION=//p' .env)" >> $GITHUB_OUTPUT
+    - uses: pnpm/action-setup@v3
+      with:
+        version: ${{ steps.versions.outputs.pnpm }}
+    - uses: actions/setup-node@main
+      with:
+        node-version: ${{ steps.versions.outputs.node }}
+    - name: Load Dependencies Cache
+      uses: actions/cache@main
+      with:
+        path: |
+          node_modules
+          .nuxt
+        key: ${{ hashFiles('pnpm-lock.yaml') }}
+    - name: Run lint
+      run: pnpm lint
+
+  build:
+    needs: [setup]
+    name: Builds Successfully
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: Load dependencies versions
+      id: versions
+      run: |
+        echo "node=$(sed -n 's/NODE_VERSION=//p' .env)" >> $GITHUB_OUTPUT
+        echo "pnpm=$(sed -n 's/PNPM_VERSION=//p' .env)" >> $GITHUB_OUTPUT
+    - uses: pnpm/action-setup@v3
+      with:
+        version: ${{ steps.versions.outputs.pnpm }}
+    - uses: actions/setup-node@main
+      with:
+        node-version: ${{ steps.versions.outputs.node }}
+    - name: Load Dependencies Cache
+      uses: actions/cache@main
+      with:
+        path: |
+          node_modules
+          .nuxt
+        key: ${{ hashFiles('pnpm-lock.yaml') }}
+    - name: Run build
+      run: pnpm build
+
+  # Reference: https://github.com/dependabot/fetch-metadata
+  automerge:
+    needs: [build, tests, lint]
+    name: AutoMerge for Dependabot
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1.6.0
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Enable auto-merge for Dependabot PRs
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

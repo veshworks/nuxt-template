@@ -1,0 +1,32 @@
+version: 2
+
+registries:
+  npm-private:
+    type: npm-registry
+    url: //npm.pgk.github.com/
+    token: ${{secrets.ANY_PERCENT_NPM_TOKEN}}
+    replaces-base: false
+  npm-fontawesome:
+    type: npm-registry
+    url: //npm.fontawesome.com/
+    token: ${{secrets.VHOYER_FONTAWESOME_NPM_AUTH_TOKEN}}
+    replaces-base: false
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    registries:
+      - npm-private
+      - npm-fontawesome
+    labels:
+      - "dependencies"
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+
+  # also upgrade github action package versions (e.g.: actions/checkout@v4)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
