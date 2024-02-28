@@ -2,17 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  components: {
-    dirs: [
-      {
-        path: './components/Fields',
-        global: true,
-      },
-      './components',
-    ],
-    loader: true,
-  },
-
   modules: [
     '@nuxt/test-utils/module',
     '@pinia/nuxt',

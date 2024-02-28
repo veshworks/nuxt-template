@@ -7,16 +7,13 @@
         <NuxtLink to="/">
           Home
         </NuxtLink>
-        <NuxtLink to="/characters">
-          My Characters
-        </NuxtLink>
       </nav>
     </header>
 
     <slot />
 
     <footer class="mt-1200 text-center">
-      made with love by Any% Studios &copy; {{ new Date().getFullYear() }}
+      made with love by veshworks &copy; {{ new Date().getFullYear() }}
     </footer>
   </div>
 </template>

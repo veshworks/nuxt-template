@@ -1,4 +1,4 @@
-# `tormenta-palace-client`
+# `nuxt-template`
 
 ## running locally
 

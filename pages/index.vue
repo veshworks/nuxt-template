@@ -16,7 +16,6 @@
         back
       </button>
       <button
-        class="primary"
         style="margin-top: 16px"
       >
         next
