@@ -6,60 +6,60 @@
   --font-size-200: 1rem;
   --font-size-300: 1.3rem;
 
-  --space-0025: calc(2/16 * 1rem);
-  --space-0050: calc(4/16 * 1rem);
-  --space-0075: calc(6/16 * 1rem);
-  --space-0100: calc(8/16 * 1rem);
-  --space-0150: calc(12/16 * 1rem);
-  --space-0200: calc(16/16 * 1rem);
-  --space-0250: calc(20/16 * 1rem);
-  --space-0300: calc(24/16 * 1rem);
-  --space-0400: calc(32/16 * 1rem);
-  --space-0500: calc(40/16 * 1rem);
-  --space-0600: calc(48/16 * 1rem);
-  --space-0700: calc(56/16 * 1rem);
-  --space-0800: calc(64/16 * 1rem);
-  --space-0900: calc(72/16 * 1rem);
-  --space-1000: calc(80/16 * 1rem);
-  --space-1100: calc(88/16 * 1rem);
-  --space-1200: calc(96/16 * 1rem);
-  --space-1300: calc(104/16 * 1rem);
-  --space-1400: calc(112/16 * 1rem);
-  --space-1500: calc(120/16 * 1rem);
+  --space-0025: calc(2 / 16 * 1rem);
+  --space-0050: calc(4 / 16 * 1rem);
+  --space-0075: calc(6 / 16 * 1rem);
+  --space-0100: calc(8 / 16 * 1rem);
+  --space-0150: calc(12 / 16 * 1rem);
+  --space-0200: calc(16 / 16 * 1rem);
+  --space-0250: calc(20 / 16 * 1rem);
+  --space-0300: calc(24 / 16 * 1rem);
+  --space-0400: calc(32 / 16 * 1rem);
+  --space-0500: calc(40 / 16 * 1rem);
+  --space-0600: calc(48 / 16 * 1rem);
+  --space-0700: calc(56 / 16 * 1rem);
+  --space-0800: calc(64 / 16 * 1rem);
+  --space-0900: calc(72 / 16 * 1rem);
+  --space-1000: calc(80 / 16 * 1rem);
+  --space-1100: calc(88 / 16 * 1rem);
+  --space-1200: calc(96 / 16 * 1rem);
+  --space-1300: calc(104 / 16 * 1rem);
+  --space-1400: calc(112 / 16 * 1rem);
+  --space-1500: calc(120 / 16 * 1rem);
   --space-auto: auto;
 
-  --color-coal-deep: hsl(0,0%,0%);
-  --color-coal-pure-hsl: 0,0%,10%;
-  --color-coal-pure: hsl(0,0%,10%);
-  --color-coal-pale: hsl(0,0%,20%);
+  --color-coal-deep: hsl(0deg 0% 0%);
+  --color-coal-pure-hsl: 0 0% 10%;
+  --color-coal-pure: hsl(0deg 0% 10%);
+  --color-coal-pale: hsl(0deg 0% 20%);
 
-  --color-ash-deep: hsl(39,10%,28%);
-  --color-ash-pure: hsl(25,13%,82%);
-  --color-ash-pale: hsl(41,63%,91%);
+  --color-ash-deep: hsl(39deg 10% 28%);
+  --color-ash-pure: hsl(25deg 13% 82%);
+  --color-ash-pale: hsl(41deg 63% 91%);
 
-  --color-sugar-deep: hsl(0, 0%, 80%);
-  --color-sugar-pure: hsl(0, 0%, 90%);
-  --color-sugar-pale: hsl(0, 0%, 100%);
+  --color-sugar-deep: hsl(0deg 0% 80%);
+  --color-sugar-pure: hsl(0deg 0% 90%);
+  --color-sugar-pale: hsl(0deg 0% 100%);
 
   /** theme tokens ****************************/
-  --color-primary-pure-hsl: 202,66%,39%;
-  --color-primary-pure: hsl(202,66%,39%);
+  --color-primary-pure-hsl: 202 66% 39%;
+  --color-primary-pure: hsl(202deg 66% 39%);
 
-  --color-danger-deep-hsl: 348,94%,14%;
-  --color-danger-deep: hsl(348,94%,14%);
-  --color-danger-pure-hsl: 359,63%,51%;
-  --color-danger-pure: hsl(359,63%,51%);
+  --color-danger-deep-hsl: 348 94% 14%;
+  --color-danger-deep: hsl(348deg 94% 14%);
+  --color-danger-pure-hsl: 359 63% 51%;
+  --color-danger-pure: hsl(359deg 63% 51%);
 
-  --color-warn-pure-hsl: 44,87%,52%;
-  --color-warn-pure: hsl(44,100%,50%);
-  --color-warn-pale-hsl: 44,87%,72%;
-  --color-warn-pale: hsl(44,87%,72%);
+  --color-warn-pure-hsl: 44 87% 52%;
+  --color-warn-pure: hsl(44deg 100% 50%);
+  --color-warn-pale-hsl: 44 87% 72%;
+  --color-warn-pale: hsl(44deg 87% 72%);
 
-  --color-success-pure-hsl: 82,58%,35%;
-  --color-success-pure: hsl(82,58%,35%);
+  --color-success-pure-hsl: 82 58% 35%;
+  --color-success-pure: hsl(82deg 58% 35%);
 
-  --color-info-pure-hsl: 198,63%,38%;
-  --color-info-pure: hsl(198,63%,38%);
+  --color-info-pure-hsl: 198 63% 38%;
+  --color-info-pure: hsl(198deg 63% 38%);
 
   --font-family-highlight: 'IM Fell English SC', sans-serif;
   --font-family-body: 'Gentium Book Basic', serif;
@@ -106,7 +106,7 @@ html {
   color: var(--body-color);
   line-height: var(--body-line-height);
   font-family: var(--font-family-body);
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -134,12 +134,12 @@ strong, b {
 
 a {
   text-decoration: underline;
-  color: hsla(var(--link-color-hsl), 1);
+  color: hsl(var(--link-color-hsl) 1);
   transition: 0.3s;
 
   @media (hover: hover) {
     &:hover {
-      background-color: hsla(var(--link-color-hsl), 0.2);
+      background-color: hsl(var(--link-color-hsl) 0.2);
     }
   }
 }
@@ -148,7 +148,7 @@ code {
   display: inline-block;
   padding: var(--space-0025) var(--space-0050);
   border-radius: var(--space-0075);
-  background-color: hsla(var(--code-bgcolor-hsl), 0.05);
+  background-color: hsl(var(--code-bgcolor-hsl) 0.05);
 
   &:has(> pre) {
     display: block;
